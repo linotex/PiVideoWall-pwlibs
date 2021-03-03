@@ -118,3 +118,128 @@ The "**--tile-code**" configuration doesn't provide bezel compensation, for that
 The first port of call for support for this GPL software is the [Forum](https://groups.google.com/g/piwall-users). We will regularly monitor the Forum and encourage other knowledgeable members to help out where possible.
 
 We will make new versions of the software available whenever there are fixes or updates.
+
+-----
+
+# PiWall configuration file
+
+[Original link](http://piwall.co.uk/information/configuration-file)
+
+Although there are several command-line options which allow definition of the picture geometry, it is usually easier to write a configuration file. This file contains information that describes the overall size of the wall and the position and size of each tile in the wall. The units used are arbitrary so it is easy to define the layout using millimetres.
+
+Each tile within a PiWall requires a copy of the same configuration file named "**.piwall**" to be stored in the "**/home/pi**" directory.  The format of the file is a familiar style with each section name in square brackets followed by several _name=value_ property definitions.  Comment lines beginning with a “#” character are also allowed.
+
+Start by measuring the overall width and height of the wall, measure from the inside of the bezel on the top left of the wall to the inside of the bezel on the top right of the wall and then do the same for the height, remembering to measure from the inside of the bezels.  This defines the usable area in which the complete video picture will be displayed.
+
+Add the “wall definition” information to the .piwall file by typing
+
+ 
+```
+[my_wall]
+width=????
+height=????
+x=0
+y=0
+```
+ 
+(In this example we use the top left of the wall area as the origin of the cooordinate system; you could choose another point so long as the coordinates of the tiles (below) are consistent.)
+
+Each screen is connected to a Raspberry Pi, each of which requires a unique name; the PiWall software reads this from a separate configuration file called "**/home/pi/.pitile**", which should look like the following:
+
+```
+[tile]
+id=???
+```
+
+Where ??? is the chosen tile name.
+
+We find the easiest way of organising things is to set the name of each tile to "pi?" where "?" is the last part of the tile's IP network address, and to use a simple numbering of tiles in rows from left to right, top to bottom, So, for a 3x3 system we would have
+
+1 | 2 | 3
+-|-|-
+4 | 5 | 6
+7 | 8 | 9
+
+with the corresponding Raspberry Pi computers having hostnames pi1, pi2, … pi9 and IP addresses 192.168.01, 192.168.0.2, … 192.168.0.9
+
+Now, for each tile we will create a “tile definition” section in the .piwall file to define the geometry of the tile screen in relation to the wall.  Measure the displayable area of the screen (between the bezels) and the distance from the top left of the wall (or wherever you have defined the origin of your coordinates)..
+
+```
+[my_tile1]
+wall=my_wall
+width=???
+height=???
+x=???
+y=???
+```
+
+Repeat for each of the remaining tiles.
+
+Finally, we create a “config” section to tie it all together.  This maps each tile identity to a tile definition.
+
+```
+[my_config]
+pi1=my_tile1
+pi2=my_tile2
+…
+piN=my_tileN
+```
+ 
+Having created the .piwall file, we can now use a single option to use the configuration:
+
+`pwomxplayer --config=my_config …`
+
+Note that this allows us to use the same command on every tile to show the appropriate portion of the video picture.
+
+For illustration, here is a complete example .piwall file
+
+```
+# wall definition for 2x2 screens with bezel compensation
+[4bez_wall]
+width=1067
+height=613
+x=0
+y=0
+
+# corresponding tile definitions
+[4bez_1]
+wall=4bez_wall
+width=522
+height=293
+x=0
+y=0
+ 
+[4bez_2]
+wall=4bez_wall
+width=522
+height=293
+x=545
+y=0
+
+[4bez_3]
+wall=4bez_wall
+width=522
+height=293
+x=0
+y=320
+```
+
+```
+[4bez_4]
+wall=4bez_wall
+width=522
+height=293
+x=545
+y=320
+
+# config
+[4bez]
+pi1=4bez_1
+pi2=4bez_2
+pi3=4bez_3
+pi4=4bez_4
+ ```
+
+Note that the section names for the wall definition and tile definitions are arbitrary; they are used only as labels referenced from other sections.  You are free to use whatever naming scheme you choose.
+
+The .piwall file can contain multiple configurations, thus avoiding the need to push different .piwall files e.g. when changing between bezel and no-bezel modes.
