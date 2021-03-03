@@ -259,3 +259,6 @@ The **piwall** system a cost-effective control solution for video display screen
 4. **Creative wall / display topology** – one image on the wall, a single image repeated on each screen, a fragmented image dependent on screen positioning (see images right).
 5. **Cost-effective** – based on the Raspberry Pi, enhanced with innovative software, benefitting from the open market for computer or razor edge TV screens.
 6. **Making video walls more widely available** – schools and colleges, research laboratories, SMEs, public notice boards, art galleries and museums, conferences and exhibitions, concerts and other events, shop windows.
+
+### Examples of varied configurations
+![Examples of varied configurations](mixed-sizes.jpg)
