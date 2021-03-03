@@ -222,9 +222,7 @@ width=522
 height=293
 x=0
 y=320
-```
 
-```
 [4bez_4]
 wall=4bez_wall
 width=522
