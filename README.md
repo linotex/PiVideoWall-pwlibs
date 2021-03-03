@@ -4,7 +4,13 @@ It is fork **piwall** from http://piwall.co.uk/ site
 
 [pwomxplayer fork](https://github.com/linotex/PiVideoWall-pwomxplayer)
 
-[Original article link](http://piwall.co.uk/information/installation)
+[Forum](https://groups.google.com/g/piwall-users)
+
+[Create your own GPL movie PiWall](http://piwall.co.uk/information/installation)
+
+[PiWall configuration file](http://piwall.co.uk/information/configuration-file)
+
+[Features and Benefits](http://piwall.co.uk/information/6-features-and-benefits)
 
 # Disclaimer of warranty
 
