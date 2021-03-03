@@ -241,3 +241,21 @@ pi4=4bez_4
 Note that the section names for the wall definition and tile definitions are arbitrary; they are used only as labels referenced from other sections.  You are free to use whatever naming scheme you choose.
 
 The .piwall file can contain multiple configurations, thus avoiding the need to push different .piwall files e.g. when changing between bezel and no-bezel modes.
+
+---------
+
+# Features and Benefits 
+
+[Original link](http://piwall.co.uk/information/6-features-and-benefits)
+
+The **piwall** system a cost-effective control solution for video display screens, using the Raspberry Pi. It is ideal for controlling imagery on multiple screens in a 'video wall' such as the one illustrated, but is equally effective with a single display screen.
+
+
+## Features and benefits
+
+1. **Use of the Raspberry Pi platform** – shortlisted as the greatest British innovation of the 21st century by the Science Museum
+2. **Flexible, manufacturer-independent** – using different display screens (size, resolution, orientation) from different manufacturers in the same video wall.
+3. **Flexible content display** – web pages, photos, videos and remote desktops in any mixture covering all or parts of the same video wall.
+4. **Creative wall / display topology** – one image on the wall, a single image repeated on each screen, a fragmented image dependent on screen positioning (see images right).
+5. **Cost-effective** – based on the Raspberry Pi, enhanced with innovative software, benefitting from the open market for computer or razor edge TV screens.
+6. **Making video walls more widely available** – schools and colleges, research laboratories, SMEs, public notice boards, art galleries and museums, conferences and exhibitions, concerts and other events, shop windows.
